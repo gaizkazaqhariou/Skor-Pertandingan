@@ -1,6 +1,7 @@
 package id.ac.polinema.skorpertandingan;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -49,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("timAway", teamAway.getText().toString());
 
                 //banyak sisa experiment yg bisa buat belajar
-//                ivFotoA.buildDrawingCache();
-//                ivFotoH.buildDrawingCache();
-//                Bitmap bitmap1 = ivFotoA.getDrawingCache();
-//                Bitmap bitmap2 = ivFotoH.getDrawingCache();
+                ivFotoA.buildDrawingCache();
+                ivFotoH.buildDrawingCache();
+                Bitmap bitmap1 = ivFotoA.getDrawingCache();
+                Bitmap bitmap2 = ivFotoH.getDrawingCache();
 
-//                intent.putExtra("BitmapAway", bitmap1);
-//                intent.putExtra("BitmapHome", bitmap2);
+                intent.putExtra("BitmapAway", bitmap1);
+                intent.putExtra("BitmapHome", bitmap2);
 
                 //===================
 

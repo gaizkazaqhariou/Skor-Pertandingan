@@ -1,6 +1,7 @@
 package id.ac.polinema.skorpertandingan;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,7 +32,6 @@ public class ScoreMain extends AppCompatActivity {
         Bundle data = new Bundle();//Use bundle to pass data
         data.putString("dataH", iniTeamH);//put string, int, etc in bundle with a key value
         data.putString("dataA", iniTeamA);//put string, int, etc in bundle with a key value
-        argumentFragment.setArguments(data);//Finally set argument bundle to fragment
 
         //banyak sisa experiment yg bisa buat belajar
 //        TextView tvNamaH = findViewById(R.id.rvNamaHome);
@@ -39,7 +39,7 @@ public class ScoreMain extends AppCompatActivity {
 //        TextView tvNamaA = findViewById(R.id.rvNamaAway);
 //        tvNamaA.setText(getIntent().getStringExtra("timAway"));
 
-        //Bundle extras = getIntent().getExtras();
+        Bundle extras = getIntent().getExtras();
 
 //        Bitmap bitmap = (Bitmap) getIntent().getParcelableExtra("BitmapAway");
 //        ImageView ivA = findViewById(R.id.ivInAway);
@@ -56,8 +56,12 @@ public class ScoreMain extends AppCompatActivity {
 //            ivH.setImageBitmap(a);
 //        }
 
-//        Bitmap bitmapH = extras.getParcelable("BitmapAway");
-//        Bitmap bitmapA = extras.getParcelable("BitmapHome");
+        Bitmap bitmapH = extras.getParcelable("BitmapAway");
+        Bitmap bitmapA = extras.getParcelable("BitmapHome");
+
+        data.putParcelable("gambarHome", bitmapH);
+        data.putParcelable("gambarAway", bitmapA);
+        argumentFragment.setArguments(data);//Finally set argument bundle to fragment
 //        ImageView ivH = findViewById(R.id.ivInHome);
 //        ImageView ivA = findViewById(R.id.ivInAway);
 //        ivH.setImageBitmap(bitmapH);

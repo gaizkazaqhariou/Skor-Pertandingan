@@ -1,10 +1,12 @@
 package id.ac.polinema.skorpertandingan;
 
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -63,6 +65,13 @@ public class BlankFragment extends Fragment {
 
         TextView tvH = view.findViewById(R.id.rvNamaHome);
         TextView tvA = view.findViewById(R.id.rvNamaAway);
+        ImageView ivH = view.findViewById(R.id.rvInHome);
+        Bitmap bitH = getArguments().getParcelable("gambarHome");
+        ivH.setImageBitmap(bitH);
+        ImageView ivA = view.findViewById(R.id.rvInAway);
+        Bitmap bitA = getArguments().getParcelable("gambarAway");
+        ivA.setImageBitmap(bitA);
+
         String teamH = getArguments().getString("dataH");
         tvH.setText("Team Home : " + teamH);
         String teamA = getArguments().getString("dataA");
