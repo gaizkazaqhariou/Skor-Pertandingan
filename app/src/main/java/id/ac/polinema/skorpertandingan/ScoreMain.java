@@ -12,6 +12,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class ScoreMain extends AppCompatActivity {
+    public final Fragment argumentFragment = new BlankFragment();//Get Fragment Instance
+    public final FragmentManager manager = getSupportFragmentManager();
+    public final FragmentTransaction transaction = manager.beginTransaction();
 
 //    private int mNo;
 //    private Fragment fg = new Fragment();
@@ -22,16 +25,16 @@ public class ScoreMain extends AppCompatActivity {
         setContentView(R.layout.activity_score_main);
 
         //final BlankFragment frag = new BlankFragment();
-        FragmentManager manager = getSupportFragmentManager();
-        final FragmentTransaction transaction = manager.beginTransaction();
 
         String iniTeamH = getIntent().getStringExtra("timHome");
         String iniTeamA = getIntent().getStringExtra("timAway");
+        int sH = getIntent().getIntExtra("skor", 0);
 
-        final Fragment argumentFragment = new BlankFragment();//Get Fragment Instance
+
         Bundle data = new Bundle();//Use bundle to pass data
         data.putString("dataH", iniTeamH);//put string, int, etc in bundle with a key value
         data.putString("dataA", iniTeamA);//put string, int, etc in bundle with a key value
+        data.putInt("skorH", sH);
 
         //banyak sisa experiment yg bisa buat belajar
 //        TextView tvNamaH = findViewById(R.id.rvNamaHome);
@@ -101,7 +104,7 @@ public class ScoreMain extends AppCompatActivity {
         });
     }
 
-    private void loadFragment(Fragment fr) {
+    protected void loadFragment(Fragment fr) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(R.id.container, fr);

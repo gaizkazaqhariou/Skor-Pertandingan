@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
+
 
 
 /**
@@ -24,6 +26,7 @@ public class addHome extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    Button inputH;
 
     public addHome() {
         // Required empty public constructor
@@ -57,10 +60,19 @@ public class addHome extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_home, container, false);
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_add_home, container, false);
 
+        final Fragment fragment = getFragmentManager().findFragmentByTag("Default");
+        inputH = view.findViewById(R.id.btAddHome);
+        inputH.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment.getArguments().putInt("skor", 1);//stack disini
+            }
+        });
+
+        // Inflate the layout for this fragment
+        return view;
+    }
 }

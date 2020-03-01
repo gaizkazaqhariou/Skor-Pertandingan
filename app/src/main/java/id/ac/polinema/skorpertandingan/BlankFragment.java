@@ -72,6 +72,10 @@ public class BlankFragment extends Fragment {
         Bitmap bitA = getArguments().getParcelable("gambarAway");
         ivA.setImageBitmap(bitA);
 
+        TextView skH = view.findViewById(R.id.rvSkorHome);
+        int sH = getArguments().getInt("skorH");
+        skH.setText(" " + sH);
+
         String teamH = getArguments().getString("dataH");
         tvH.setText("Team Home : " + teamH);
         String teamA = getArguments().getString("dataA");
