@@ -33,6 +33,7 @@ public class ScoreMain extends AppCompatActivity {
         data.putString("dataA", iniTeamA);//put string, int, etc in bundle with a key value
         argumentFragment.setArguments(data);//Finally set argument bundle to fragment
 
+        //banyak sisa experiment yg bisa buat belajar
 //        TextView tvNamaH = findViewById(R.id.rvNamaHome);
 //        tvNamaH.setText(getIntent().getStringExtra("timHome"));
 //        TextView tvNamaA = findViewById(R.id.rvNamaAway);

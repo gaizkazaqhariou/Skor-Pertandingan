@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("timHome", teamHome.getText().toString());
                 intent.putExtra("timAway", teamAway.getText().toString());
 
+                //banyak sisa experiment yg bisa buat belajar
 //                ivFotoA.buildDrawingCache();
 //                ivFotoH.buildDrawingCache();
 //                Bitmap bitmap1 = ivFotoA.getDrawingCache();

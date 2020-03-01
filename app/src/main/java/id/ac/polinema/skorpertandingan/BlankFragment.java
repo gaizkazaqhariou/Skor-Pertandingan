@@ -67,6 +67,8 @@ public class BlankFragment extends Fragment {
         tvH.setText("Team Home : " + teamH);
         String teamA = getArguments().getString("dataA");
         tvA.setText("Team Away : " + teamA);
+
+        //banyak sisa experiment yg bisa buat belajar
         // Inflate the layout for this fragment
         //View view = inflater.inflate(R.layout.review_layout, container,false);
         return view;
