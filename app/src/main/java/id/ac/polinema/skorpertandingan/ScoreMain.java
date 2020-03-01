@@ -1,11 +1,9 @@
 package id.ac.polinema.skorpertandingan;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -22,18 +20,50 @@ public class ScoreMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_main);
 
-        final BlankFragment frag = new BlankFragment();
+        //final BlankFragment frag = new BlankFragment();
         FragmentManager manager = getSupportFragmentManager();
         final FragmentTransaction transaction = manager.beginTransaction();
 
-        Bundle extras = getIntent().getExtras();
-//sadbhsagdashgsa
-        Bitmap bitmapH = extras.getParcelable("BitmapAway");
-        ImageView ivH = findViewById(R.id.ivInHome);
-        ivH.setImageBitmap(bitmapH);
+        String iniTeamH = getIntent().getStringExtra("timHome");
+        String iniTeamA = getIntent().getStringExtra("timAway");
+
+        final Fragment argumentFragment = new BlankFragment();//Get Fragment Instance
+        Bundle data = new Bundle();//Use bundle to pass data
+        data.putString("dataH", iniTeamH);//put string, int, etc in bundle with a key value
+        data.putString("dataA", iniTeamA);//put string, int, etc in bundle with a key value
+        argumentFragment.setArguments(data);//Finally set argument bundle to fragment
+
+//        TextView tvNamaH = findViewById(R.id.rvNamaHome);
+//        tvNamaH.setText(getIntent().getStringExtra("timHome"));
+//        TextView tvNamaA = findViewById(R.id.rvNamaAway);
+//        tvNamaA.setText(getIntent().getStringExtra("timAway"));
+
+        //Bundle extras = getIntent().getExtras();
+
+//        Bitmap bitmap = (Bitmap) getIntent().getParcelableExtra("BitmapAway");
+//        ImageView ivA = findViewById(R.id.ivInAway);
+//        ivA.setImageBitmap(bitmap);
+
+//        if(getIntent().hasExtra("BitmapAway")) {
+//            ImageView ivA = findViewById(R.id.ivInAway);
+//            Bitmap b = BitmapFactory.decodeByteArray(getIntent().getByteArrayExtra("BitmapAway"),0,getIntent().getByteArrayExtra("BitmapAway").length);
+//            ivA.setImageBitmap(b);
+//        }
+//        if(getIntent().hasExtra("BitmapHome")) {
+//            ImageView ivH = findViewById(R.id.ivInHome);
+//            Bitmap a = BitmapFactory.decodeByteArray(getIntent().getByteArrayExtra("BitmapAway"),0,getIntent().getByteArrayExtra("BitmapAway").length);
+//            ivH.setImageBitmap(a);
+//        }
+
+//        Bitmap bitmapH = extras.getParcelable("BitmapAway");
+//        Bitmap bitmapA = extras.getParcelable("BitmapHome");
+//        ImageView ivH = findViewById(R.id.ivInHome);
+//        ImageView ivA = findViewById(R.id.ivInAway);
+//        ivH.setImageBitmap(bitmapH);
+//        ivA.setImageBitmap(bitmapA);
 
         if (savedInstanceState == null) {
-            transaction.add(R.id.container, frag, "Default");
+            transaction.add(R.id.container, argumentFragment, "Default");
             transaction.commitNow();
         }
 
@@ -47,6 +77,12 @@ public class ScoreMain extends AppCompatActivity {
             @Override
             public void onClick(View vA) {
                 loadFragment(new addAway());
+            }
+        });
+        findViewById(R.id.btToReview).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View vA) {
+                loadFragment(argumentFragment);
             }
         });
 

@@ -1,7 +1,6 @@
 package id.ac.polinema.skorpertandingan;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -46,15 +45,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, ScoreMain.class);
-                intent.putExtra("timHome", teamHome.getText());
-                intent.putExtra("timAway", teamAway.getText());
+                intent.putExtra("timHome", teamHome.getText().toString());
+                intent.putExtra("timAway", teamAway.getText().toString());
 
-                ivFotoA.buildDrawingCache();
-                ivFotoH.buildDrawingCache();
-                Bitmap bitmap1 = ivFotoA.getDrawingCache();
-                Bitmap bitmap2 = ivFotoH.getDrawingCache();
-                intent.putExtra("BitmapAway", bitmap1);
-                intent.putExtra("BitmapHome", bitmap2);
+//                ivFotoA.buildDrawingCache();
+//                ivFotoH.buildDrawingCache();
+//                Bitmap bitmap1 = ivFotoA.getDrawingCache();
+//                Bitmap bitmap2 = ivFotoH.getDrawingCache();
+
+//                intent.putExtra("BitmapAway", bitmap1);
+//                intent.putExtra("BitmapHome", bitmap2);
+
+                //===================
+
+//                ByteArrayOutputStream _bs = new ByteArrayOutputStream();
+//                bitmap1.compress(Bitmap.CompressFormat.PNG, 50, _bs);
+//                intent.putExtra("BitmapAway", _bs.toByteArray());
+//                bitmap2.compress(Bitmap.CompressFormat.PNG, 50, _bs);
+//                intent.putExtra("BitmapHome", _bs.toByteArray());
+
+                //===================
 
                 startActivity(intent);
             }

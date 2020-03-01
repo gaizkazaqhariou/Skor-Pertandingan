@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -57,11 +58,18 @@ public class BlankFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.review_layout, container, false);
+
+        TextView tvH = view.findViewById(R.id.rvNamaHome);
+        TextView tvA = view.findViewById(R.id.rvNamaAway);
+        String teamH = getArguments().getString("dataH");
+        tvH.setText("Team Home : " + teamH);
+        String teamA = getArguments().getString("dataA");
+        tvA.setText("Team Away : " + teamA);
         // Inflate the layout for this fragment
         //View view = inflater.inflate(R.layout.review_layout, container,false);
-        return inflater.inflate(R.layout.review_layout, container, false);
+        return view;
     }
 
 }
