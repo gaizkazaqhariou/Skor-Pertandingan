@@ -11,10 +11,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-public class ScoreMain extends AppCompatActivity {
+//coba pake interface
+public class ScoreMain extends AppCompatActivity /*implements addHome.sendSkor*/ {
     public final Fragment argumentFragment = new BlankFragment();//Get Fragment Instance
     public final FragmentManager manager = getSupportFragmentManager();
     public final FragmentTransaction transaction = manager.beginTransaction();
+    public final Bundle data = new Bundle();//Use bundle to pass data
 
 //    private int mNo;
 //    private Fragment fg = new Fragment();
@@ -30,8 +32,6 @@ public class ScoreMain extends AppCompatActivity {
         String iniTeamA = getIntent().getStringExtra("timAway");
         int sH = getIntent().getIntExtra("skor", 0);
 
-
-        Bundle data = new Bundle();//Use bundle to pass data
         data.putString("dataH", iniTeamH);//put string, int, etc in bundle with a key value
         data.putString("dataA", iniTeamA);//put string, int, etc in bundle with a key value
         data.putInt("skorH", sH);
@@ -110,6 +110,12 @@ public class ScoreMain extends AppCompatActivity {
         fragmentTransaction.replace(R.id.container, fr);
         fragmentTransaction.commit();
     }
+
+//    @Override
+//    public void kirimSkor(int skor) {
+//        data.putInt("skor", skor);
+//        argumentFragment.setArguments(data);
+//    }
 
 //    private void changePage(int mNo) {
 //        //changeNumber(mNo);

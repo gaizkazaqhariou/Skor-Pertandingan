@@ -11,7 +11,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+//coba pake interface buat kirim data
+public class MainActivity extends AppCompatActivity /*implements addHome.sendSkor*/ {
     static final int REQUEST_IMAGE_GET1 = 1;
     static final int REQUEST_IMAGE_GET2 = 2;
     ImageView ivFotoA;

@@ -1,6 +1,7 @@
 package id.ac.polinema.skorpertandingan;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ public class addHome extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    //sendSkor SS;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -68,11 +71,22 @@ public class addHome extends Fragment {
         inputH.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment.getArguments().putInt("skor", 1);//stack disini
+//                int data = 1;
+//                SS.kirimSkor(data);
+                //coba pake intent, malah data yg lain jadi null
+                Intent intent = new Intent(getActivity().getBaseContext(), ScoreMain.class);
+                intent.putExtra("skor", 1);
+                startActivityForResult(intent, 1);
+                //getActivity().startActivityFromFragment(new BlankFragment(), intent, 1);
+                //fragment.getArguments().putInt("skor", 1);//stack disini
             }
         });
 
         // Inflate the layout for this fragment
         return view;
+    }
+
+    interface sendSkor {
+        void kirimSkor(int skor);
     }
 }
